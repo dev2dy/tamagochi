@@ -36,6 +36,7 @@ namespace COM
             int result = 0;
             do
             {
+                // After entered '1' the amount needed to be specified.
                 System.Console.Write("Amount(1-3): ");
                 input = Console.ReadLine();
                 int.TryParse(input, out result);
@@ -43,7 +44,6 @@ namespace COM
             } while (input != null && input.Length == 1 && (result<1 || result>3));
             if (input != null && input.Length == 1)
             {
-                //int.TryParse(input, out result);
                 if (result == 1)
                 {
                     System.Console.WriteLine("It was too little.");
@@ -107,6 +107,7 @@ namespace COM
                 Comfort = 100;
             }
         }
+        // If walking is true, the comfort has bonus addition.
         virtual public void Play(bool walking){
             
             if (walking)
@@ -189,6 +190,7 @@ namespace COM
             System.Console.WriteLine("\nYou have a cat! Take care of "+name+'!');
         }
         public override void Pet(){
+            // If r is 20% or above, the cat dislikes petting.
             Random r = new Random();
             int num = r.Next(1, 101);
             if (num <= 20)
@@ -221,6 +223,7 @@ namespace COM
     }
     internal class Program
     {
+        // Name the animal and calls its constructor.
         public static Animal NameIt(string inp){
             string? name = "";
             System.Console.Write("Name your new pet: ");
@@ -240,6 +243,7 @@ namespace COM
         }
         static void Main(string[] args)
         {
+            // 1st phase: selecting type.
             Animal animal;
             string? input = "";
             do
@@ -258,6 +262,7 @@ namespace COM
                 }
             } while (true);
             
+            // 2nd phase: Show available options for different types.
             if (animal.GetType() == typeof(COM.Dog))
             {
                 System.Console.WriteLine("Options: [0]Exit, [1]Feed, [2]Drink, [3]Pet, [4]Play, [5]Sleep, [6]Walk");
@@ -267,6 +272,7 @@ namespace COM
                 System.Console.WriteLine("Options: [0]Exit, [1]Feed, [2]Drink, [3]Pet, [4]Play, [5]Sleep");
             }
 
+            // 3rd phase: Actions
             do
             {
                 animal.Status();
