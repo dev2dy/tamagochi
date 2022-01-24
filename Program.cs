@@ -135,25 +135,25 @@ namespace COM
             }
         }
         virtual public void Sleep(){
-            Energy += 40;
+            Energy += 80;
             if (Energy > 100)
             {
                 // This is the max.
                 Energy = 100;
             }
-            Hunger -= 40;
+            Hunger -= 20;
             if (Hunger < 0)
                 {
                     // This is the min.
                     Hunger = 0;
                 }
-            Thirst -= 40;
+            Thirst -= 20;
             if (Thirst < 0)
                 {
                     // This is the min.
                     Thirst = 0;
                 }
-            Comfort -= 40;
+            Comfort -= 20;
             if (Comfort < 0)
                 {
                     // This is the min.
